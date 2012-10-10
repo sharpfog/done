@@ -1,0 +1,9 @@
+{
+  "name": "Done",
+  "description": "Asynchronous file system helpers (with completion callbacks) in Node.js",
+  "author": "sharpfog <me@sharpfog.com>",
+  "version": "0.0.1",
+  "license" : "MIT",
+  "engine": "node >= 0.6.6",
+  "main" : "lib/done"
+}
