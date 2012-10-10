@@ -10,6 +10,18 @@ Done provides asynchronous file system helpers (with completion callbacks) for c
 2.  Done helpers accept a completion function that is called after the entire operation is "done". 
 3.  Most done helpers accept an iterator function that is called per each item.
 
+## API
+``` js
+  // Reads the contents of a directory
+  done.readdir(dir, iterator, finished);
+  
+  // Reads the contents of a directory and recurses into subdirectories
+  done.readdirRecursive(dir, iterator, finished);
+  
+  // Creates a directory and recursively creates parents (mkdir -p)
+  done.mkdir(dir, mode, iterator, finished);
+```
+
 ## Usage
 
 ### Reading a directory
@@ -69,7 +81,7 @@ The following example shows how to recursively read a directory with both an ite
 
 ```
 
-### Recursively make a directory
+### Recursively making a directory
 
 The following example shows how to recursively create a directory (and all missing parent directories). The first callback is called for each directory that's created and the second callback is called after the entire path has been created (or an error occurs).
 
