@@ -21,18 +21,14 @@ The following example shows how to read a directory with both an iterative callb
 
   done.readdir('./', 
     function(err, path, isDir, cb) {
-      if (err) 
-        console.log("An error occured " + err);
-      else
-        console.log("Discovered item " + path);
+      if (err) console.log("An error occured " + err);
+      else console.log("Discovered item " + path);
         
       cb(); // always call cb() when you're finished
     },
     function(err) {
-      if (err)
-        console.log("An error occured " + err);
-      else
-        console.log("Finished reading dir!");
+      if (err) console.log("An error occured " + err);
+      else console.log("Finished reading dir!");
     });
 
 ```
@@ -44,10 +40,8 @@ You can also omit the completion callback.
 
   done.readdir('./', 
     function(err, path, isDir, cb) {
-      if (err) 
-        console.log("An error occured " + err);
-      else
-        console.log("Discovered item " + path);
+      if (err) console.log("An error occured " + err);
+      else console.log("Discovered item " + path);
         
       cb(); // always call cb() when you're finished
     });
@@ -63,18 +57,33 @@ The following example shows how to recursively read a directory with both an ite
 
   done.readdirRecursive('./', 
     function(err, path, isDir, cb) {
-      if (err) 
-        console.log("An error occured " + err);
-      else
-        console.log("Discovered item " + path);
+      if (err) console.log("An error occured " + err);
+      else console.log("Discovered item " + path);
         
       cb(); // always call cb() when you're finished
     },
     function(err) {
-      if (err)
-        console.log("An error occured " + err);
-      else
-        console.log("Finished reading dir!");
+      if (err) console.log("An error occured " + err);
+      else console.log("Finished reading dir!");
     });
 
 ```
+
+### Recursively make a directory
+
+The following example shows how to recursively create a directory (and all missing parent directories). The first callback is called for each directory that's created and the second callback is called after the entire path has been created (or an error occurs).
+
+This is similar to *nix `mkdir -p`.
+
+``` js
+done.mkdir("my/test/path", null, 
+  function(err, path, cb) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Created path" + path);
+    cb();
+  },
+  function(err) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Finished!");
+  });
+``` js
