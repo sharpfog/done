@@ -21,7 +21,7 @@ Done provides asynchronous file system helpers (with completion callbacks) for c
   done.readdirRecursive(dir, iterator, finished);
   
   // Creates a directory and recursively creates parents (mkdir -p)
-  done.mkdir(dir, mode, iterator, finished);
+  done.mkdirRecursive(dir, mode, iterator, finished);
 ```
 
 ## Usage
@@ -90,7 +90,7 @@ The following example shows how to recursively create a directory (and all missi
 This is similar to *nix `mkdir -p`.
 
 ``` js
-done.mkdir("my/test/path", null, 
+done.mkdirRecursive("my/test/path", 0777, 
   function(err, path, cb) {
     if (err) console.log("An error occured " + err);
     else console.log("Created path" + path);
