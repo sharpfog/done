@@ -12,7 +12,7 @@ Done provides asynchronous file system helpers (with completion callbacks) for c
 2.  Done helpers accept a completion function that is called after the entire operation is "done". 
 3.  Most done helpers accept an iterator function that is called per each item.
 
-## Instalation
+## Installation
 Done is available via npm:
 
 ```
