@@ -1,9 +1,14 @@
-# Done
+# done
 
-Done provides asynchronous file system helpers (with completion callbacks) for recursive operations. Some helpers are similar to those found in the excellent [wrench-js](https://github.com/ryanmcgrath/wrench-js). A couple features that make Done unique:
+Asynchronous file system helpers for Node.js
 
-1.  Most helpers invoke an iterator callback for each file/directory visited instead of one master callback at the end.
-2.  Most helpers invoke a seperate completion callback when an operation has finished (allows you to separate iteration code from wrap-up code). 
+## Motivation
+
+Done provides asynchronous file system helpers (with completion callbacks) for common operations in Node.js. Some helpers are similar to those found in the excellent [wrench-js](https://github.com/ryanmcgrath/wrench-js) with a couple important differences:
+
+1.  Done helpers are all asyncronous.
+2.  Done helpers accept a completion function that is called after the entire operation is "done". 
+3.  Most done helpers accept an iterator function that is called per each item.
 
 ## Usage
 
