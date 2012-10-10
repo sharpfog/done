@@ -12,16 +12,23 @@ Done provides asynchronous file system helpers (with completion callbacks) for c
 2.  Done helpers accept a completion function that is called after the entire operation is "done". 
 3.  Most done helpers accept an iterator function that is called per each item.
 
+## Instalation
+Done is available via npm:
+
+```
+npm install done
+```
+
 ## API
 ``` js
-  // Reads the contents of a directory
-  done.readdir(dir, iterator, finished);
-  
-  // Reads the contents of a directory and recurses into subdirectories
-  done.readdirRecursive(dir, iterator, finished);
-  
-  // Creates a directory and recursively creates parents (mkdir -p)
-  done.mkdirRecursive(dir, mode, iterator, finished);
+// Reads the contents of a directory
+done.readdir(dir, iterator, finished);
+
+// Reads the contents of a directory and recurses into subdirectories
+done.readdirRecursive(dir, iterator, finished);
+
+// Creates a directory and recursively creates parents (mkdir -p)
+done.mkdirRecursive(dir, mode, iterator, finished);
 ```
 
 ## Usage
@@ -31,34 +38,34 @@ Done provides asynchronous file system helpers (with completion callbacks) for c
 The following example shows how to read a directory with both an iterative callback (called every time an item is discovered) and a completion callback (called when every item has been discovered).
 
 ``` js
-  var done = require('done');
+var done = require('done');
 
-  done.readdir('./', 
-    function(err, path, isDir, cb) {
-      if (err) console.log("An error occured " + err);
-      else console.log("Discovered item " + path);
-        
-      cb(); // always call cb() when you're finished
-    },
-    function(err) {
-      if (err) console.log("An error occured " + err);
-      else console.log("Finished reading dir!");
-    });
+done.readdir('./', 
+  function(err, path, isDir, cb) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Discovered item " + path);
+      
+    cb(); // always call cb() when you're finished
+  },
+  function(err) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Finished reading dir!");
+  });
 
 ```
 
 You can also omit the completion callback.
 
 ``` js
-  var done = require('done');
+var done = require('done');
 
-  done.readdir('./', 
-    function(err, path, isDir, cb) {
-      if (err) console.log("An error occured " + err);
-      else console.log("Discovered item " + path);
-        
-      cb(); // always call cb() when you're finished
-    });
+done.readdir('./', 
+  function(err, path, isDir, cb) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Discovered item " + path);
+      
+    cb(); // always call cb() when you're finished
+  });
 
 ``` 
 
@@ -67,19 +74,19 @@ You can also omit the completion callback.
 The following example shows how to recursively read a directory with both an iterative callback (called every time an item is discovered) and a completion callback (called when every item has been discovered).
 
 ``` js
-  var done = require('done');
+var done = require('done');
 
-  done.readdirRecursive('./', 
-    function(err, path, isDir, cb) {
-      if (err) console.log("An error occured " + err);
-      else console.log("Discovered item " + path);
-        
-      cb(); // always call cb() when you're finished
-    },
-    function(err) {
-      if (err) console.log("An error occured " + err);
-      else console.log("Finished reading dir!");
-    });
+done.readdirRecursive('./', 
+  function(err, path, isDir, cb) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Discovered item " + path);
+      
+    cb(); // always call cb() when you're finished
+  },
+  function(err) {
+    if (err) console.log("An error occured " + err);
+    else console.log("Finished reading dir!");
+  });
 
 ```
 
