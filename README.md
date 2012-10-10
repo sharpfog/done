@@ -1,6 +1,8 @@
-# Done for Node.js
+# Done for Node.js 
 
 Asynchronous file system helpers for Node.js
+
+[![Build Status](https://secure.travis-ci.org/sharpfog/done.png)](http://travis-ci.org/sharpfog/done)
 
 ## Motivation
 
