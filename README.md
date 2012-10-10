@@ -7,15 +7,19 @@ Done provides asynchronous file system helpers (with completion callbacks) for r
 
 ## Usage 
 
+### Recursively reading a directory
+
+The following example shows how to recursively read a directory with both an iterative callback (called every time an item is discovered) and a completion callback (called when every item has been discovered).
+
 ``` js
   var done = require('done');
 
-  done.readdir('./', 
+  done.readdirRecursive('./', 
     function(err, path, isDir, cb) {
       if (err) 
         console.log("An error occured " + err);
-      else if (!isDir)
-        console.log("Discovered file " + path);
+      else
+        console.log("Discovered item " + path);
         
       cb(); // always call cb() when you're finished
     },
@@ -24,6 +28,23 @@ Done provides asynchronous file system helpers (with completion callbacks) for r
         console.log("An error occured " + err);
       else
         console.log("Finished reading dir!");
+    });
+
+```
+
+You can also omit the completion callback.
+
+``` js
+  var done = require('done');
+
+  done.readdirRecursive('./', 
+    function(err, path, isDir, cb) {
+      if (err) 
+        console.log("An error occured " + err);
+      else
+        console.log("Discovered item " + path);
+        
+      cb(); // always call cb() when you're finished
     });
 
 ```
